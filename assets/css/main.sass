@@ -1,11 +1,28 @@
-$black: #252525
-$primary: #FF0000
+$black: #0F0F0F
+$grey: #232D3F
+$primary: #008170
+$secondary: #005B41
 
 *
   font-family: 'Preahvihear', sans-serif
 
 body
   background: $black
+  color: white
 
 .hover-text-shadow:hover
-  text-shadow: $primary 1px 0 10px
+  text-shadow: $secondary 1px 0 10px
+
+.profile-shine
+  border-radius: 431px
+  background: radial-gradient(50% 50% at 50% 50%, $secondary -60%, $black 100%)
+
+.btn
+  padding: 10px 20px
+  border: 1px solid $secondary
+  border-radius: 8px
+  font-size: 12px
+  line-height: 15px
+  width: fit-content
+  font-weight: 500
+  background-color: #00817044

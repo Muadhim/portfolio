@@ -11,14 +11,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#FF0000',
-        secondary: '#AF0404',
-        black: '#252525',
-        grey: '#414141'
+        primary: '#008170',
+        secondary: '#005B41',
+        black: '#0F0F0F',
+        grey: '#232D3F'
       },
       
       boxShadow: {
-        center: '10px 35px 600px -15px rgba(22, 333, 0, 0.3)'
+        "bottom-primary": '0 -30px 40px 10px #005B41'
       }
     },
   },
