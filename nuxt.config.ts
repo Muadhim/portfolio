@@ -8,12 +8,12 @@ export default defineNuxtConfig({
 
   components: [
     {
-      path: '~/components',
+      path: "~/components",
       pathPrefix: false,
-    }
+    },
   ],
 
-  css: ['~/assets/css/main.sass'],
+  css: ["~/assets/css/main.scss"],
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image"]
-})
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/image"],
+});
