@@ -70,35 +70,38 @@ export const projects = [
 
 export const skills = [
   {
-    title: "skills",
-    desc: "",
-  },
-  {
-    title: "vue",
+    id: "vue",
     desc: "vue desc",
+    image: "http://localhost:3000/_nuxt/assets/images/vue.svg",
   },
   {
-    title: "js",
+    id: "js",
     desc: "js desc",
+    image: "http://localhost:3000/_nuxt/assets/images/js.svg",
   },
   {
-    title: "ts",
+    id: "ts",
     desc: "ts desc",
+    image: "http://localhost:3000/_nuxt/assets/images/ts.svg",
   },
   {
-    title: "flutter",
+    id: "flutter",
     desc: "flutter desc",
+    image: "http://localhost:3000/_nuxt/assets/images/flutter.svg",
   },
   {
-    title: "react",
+    id: "react",
     desc: "react desc",
+    image: "http://localhost:3000/_nuxt/assets/images/react.svg",
   },
   {
-    title: "php",
+    id: "php",
     desc: "php desc",
+    image: "http://localhost:3000/_nuxt/assets/images/flutter.svg",
   },
   {
-    title: "tailwindcss",
+    id: "tailwindcss",
     desc: "tailwindcss desc",
+    image: "http://localhost:3000/_nuxt/assets/images/react.svg",
   },
 ];
