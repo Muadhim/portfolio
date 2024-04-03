@@ -7,14 +7,10 @@
         </div>
         <div class="absolute -top-14 left-36">
           Hello I Am
-          <span class="text-primary font-normal text-xl">{{
-            config.name
-          }}</span>
+          <span class="text-primary font-normal text-xl">{{ name }}</span>
         </div>
-        <div
-          class="profile-shine absolute w-80 h-80 profile-shine -top-10 -left-20 -z-30"
-        />
-        <div class="w-40 h-40 rounded-full overflow-hidden relative">
+        <div class="profile-shine absolute w-96 h-96 -top-10 -left-20 -z-30" />
+        <div class="w-52 h-52 rounded-full overflow-hidden relative">
           <img
             src="@/assets/images/profile.png"
             alt="profile"
@@ -22,29 +18,29 @@
           />
         </div>
         <div class="justify-end w-2/3">
-          <div class="text-5xl hover-text-shadow">{{ config.justText0 }}</div>
-          <div class="text-xs mt-4">{{ config.justText1 }}&#128517;</div>
+          <div class="text-5xl hover-text-shadow">{{ justText0 }}</div>
+          <div class="text-xs mt-4">{{ justText1 }}&#128517;</div>
         </div>
       </div>
       <div class="mt-4">
-        <h1 class="text-5xl font-normal">I'm a {{ config.profession }}.</h1>
+        <h1 class="text-5xl font-normal">I'm a {{ profession }}.</h1>
         <h2 class="text-xl font-normal"
-          >Currently, I'm a {{ config.profession }} at
-          <NuxtImg class="w-6 inline-block" :src="config.officeLogo" />
-          <NuxtLink :to="config.officeUrl" target="_blank">{{
-            config.workIn
-          }}</NuxtLink>
+          >Currently, I'm a {{ profession }} at
+          <NuxtImg class="w-6 inline-block" :src="officeLogo" />
+          <NuxtLink :to="officeUrl" target="_blank">{{ workIn }}</NuxtLink>
         </h2>
-        <p class="w-full max-w-[892px] mt-16 text-2xl">{{ config.aboutMe }}</p>
+        <p class="w-full max-w-[892px] mt-16 text-2xl">{{ aboutMe }}</p>
       </div>
     </div>
 
     <div id="experience" class="mt-48">
       <h2 class="text-4xl mb-10">Work Experience</h2>
       <div class="relative flex flex-col justify-center">
-        <div class="profile-shine absolute w-[800px] h-[800px] profile-shine -z-30 left-1/2 -translate-x-1/2 "/>
+        <div
+          class="profile-shine absolute w-[800px] h-[800px] profile-shine -z-30 left-1/2 -translate-x-1/2"
+        />
         <ul class="flex flex-wrap w-full max-w-[1165px] mx-auto mt-5 gap-5">
-          <li v-for="(exp, index) in config.workExperiences" :key="index" class="">
+          <li v-for="(exp, index) in workExperiences" :key="index" class="">
             <WorkCard
               v-if="index < 4"
               :image-src="exp.imageUrl"
@@ -53,12 +49,36 @@
             />
           </li>
         </ul>
-        <button v-if="config.workExperiences.length > 4" class="mx-auto text-primary hover-text-shadow">See more...</button>
+        <button
+          v-if="workExperiences.length > 4"
+          class="mx-auto text-primary hover-text-shadow"
+          >See more...</button
+        >
       </div>
     </div>
 
-    <div id="project">
-      
+    <div id="skills" class="my-48">
+      <Skills />
+    </div>
+
+    <div id="project" class="my-48 h-fit w-full">
+      <ul>
+        <li v-for="(proj, index) in projects" :key="index" class="my-10">
+          <ProjectCard
+            v-if="index < 4"
+            :title="proj.title"
+            :description="proj.desc"
+            :imageSrc="proj.image"
+            :project-type="proj.type"
+            :is-left-to-right="index % 2 === 0"
+          />
+        </li>
+      </ul>
+      <button
+        v-if="projects.length > 4"
+        class="mx-auto text-primary hover-text-shadow"
+        >See more...</button
+      >
     </div>
 
     <div id="contact"></div>
@@ -66,8 +86,16 @@
 </template>
 
 <script lang="ts" setup>
-import type arrowCrookedVue from "~/assets/illustrations/arrow-crooked.vue";
-import config from "~/config";
+import {
+  name,
+  justText0,
+  justText1,
+  profession,
+  workIn,
+  officeLogo,
+  officeUrl,
+  aboutMe,
+  workExperiences,
+  projects,
+} from "~/constants";
 </script>
-
-<style></style>
