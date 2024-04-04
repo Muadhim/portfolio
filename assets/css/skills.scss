@@ -48,8 +48,7 @@
 }
 
 #skill,
-.planet,
-#flutter .moon {
+.planet {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -59,6 +58,7 @@
   margin-left: -0.5em;
   border-radius: 50%;
   transform-style: preserve-3d;
+  animation: spin 10s linear infinite;
 }
 
 #skill {
@@ -72,85 +72,22 @@
 .planet {
   background-color: #202020;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-}
-
-.ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-}
-
-#ts .ring {
-  width: 2em;
-  height: 2em;
-  margin-top: -1em;
-  margin-left: -1em;
-  border: 0.3em solid rgba(160, 147, 130, 0.7);
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-#ts .ring:after {
-  border-radius: 50%;
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 50%;
-  width: 2.2em;
-  height: 2.2em;
-  margin-top: -1.1em;
-  margin-left: -1.1em;
-  border: 0.07em solid rgba(160, 147, 130, 0.5);
-  box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* --------------------------------------------------------------------------- planets index */
-#vue {
-  z-index: 10;
-}
-
-#js {
-  z-index: 9;
-}
-
-#flutter {
-  z-index: 8;
-}
-
-#moon {
-  z-index: 7;
-}
-
-#react {
-  z-index: 6;
-}
-
-#php {
-  z-index: 5;
-}
-
-#ts {
-  z-index: 4;
-}
-
-#tailwindcss {
-  z-index: 3;
-}
-
-#neptune {
-  z-index: 2;
-}
-
-#skill {
-  z-index: 1;
+  font-size: 5em;
 }
 
 /* --------------------------------------------------------------------------- animations */
+@keyframes spin {
+  100% {
+    transform: rotate(0deg);
+  }
+  0% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes orbit {
   0% {
     transform: rotateZ(0deg);
@@ -312,385 +249,37 @@
   top: 50% !important;
 }
 
-/* --------------------------------------------------------------------------- data */
-/* --------------------------------------------------------------------------- speed */
-/* sideral years */
-#vue .pos,
-#vue .planet,
-#vue.orbit {
-  animation-duration: 2.89016s;
-}
-
-#js .pos,
-#js .planet,
-#js.orbit {
-  animation-duration: 7.38237s;
-}
-
-#flutter .pos,
-#flutter .planet,
-#flutter.orbit {
-  animation-duration: 12.00021s;
-}
-
-#flutter .orbit .pos,
-#flutter .orbit {
-  animation-duration: 0.89764s;
-}
-
-#react .pos,
-#react .planet,
-#react.orbit {
-  animation-duration: 22.57017s;
-}
-
-#php .pos,
-#php .planet,
-#php.orbit {
-  animation-duration: 142.35138s;
-}
-
-#ts .pos,
-#ts .planet,
-#ts.orbit,
-#ts .ring {
-  animation-duration: 353.36998s;
-}
-
-#tailwindcss .pos,
-#tailwindcss .planet,
-#tailwindcss.orbit {
-  animation-duration: 1008.20215s;
-}
-
-#neptune .pos,
-#neptune .planet,
-#neptune.orbit {
-  animation-duration: 1977.49584s;
-}
-
-/* --------------------------------------------------------------------------- planets sizes */
-/* --------------------------------------------------------------------------- stretched sizes */
 .scale-stretched #skill {
   font-size: 10em;
 }
 
-.scale-stretched #vue .planet {
-  font-size: 1.5em;
-}
-
-.scale-stretched #js .planet {
-  font-size: 3.72em;
-}
-
-.scale-stretched #flutter .planet {
-  font-size: 3.92em;
-}
-
-.scale-stretched #flutter .moon {
-  font-size: 1.2em;
-}
-
-.scale-stretched #react .planet {
-  font-size: 2.9em;
-}
-
-.scale-stretched #php .planet {
-  font-size: 12em;
-}
-
-.scale-stretched #ts .planet {
-  font-size: 10.8em;
-}
-
-.scale-stretched #tailwindcss .planet {
-  font-size: 4.68em;
-}
-
-.scale-stretched #neptune .planet {
-  font-size: 4.9em;
-}
-
-/* --------------------------------------------------------------------------- scaled sizes */
-/*
-(planets radius * 2) * ratio
-*/
-/*$distanceScaleRatio:   0.000075em;*/
-/* --------------------------------------------------------------------------- planets distance scale sizes */
-.scale-d #skill {
-  font-size: 41.73048em;
-}
-
-.scale-d #vue .planet {
-  font-size: 0.14634em;
-}
-
-.scale-d #js .planet {
-  font-size: 0.36306em;
-}
-
-.scale-d #flutter .planet {
-  font-size: 0.38226em;
-}
-
-.scale-d #flutter .moon {
-  font-size: 0.08226em;
-}
-
-.scale-d #react .planet {
-  font-size: 0.20334em;
-}
-
-.scale-d #php .planet {
-  font-size: 4.19466em;
-}
-
-.scale-d #ts .planet {
-  font-size: 3.49392em;
-}
-
-.scale-d #tailwindcss .planet {
-  font-size: 1.52172em;
-}
-
-.scale-d #neptune .planet {
-  font-size: 1.47732em;
-}
-
-/* --------------------------------------------------------------------------- planet size scale sizes */
-.scale-s #skill {
-  font-size: 417.3048em;
-}
-
-.scale-s #vue .planet {
-  font-size: 1.4634em;
-}
-
-.scale-s #js .planet {
-  font-size: 3.6306em;
-}
-
-.scale-s #flutter .planet {
-  font-size: 3.8226em;
-}
-
-.scale-s #flutter .moon {
-  font-size: 0.8226em;
-}
-
-.scale-s #react .planet {
-  font-size: 2.0334em;
-}
-
-.scale-s #php .planet {
-  font-size: 41.9466em;
-}
-
-.scale-s #ts .planet {
-  font-size: 34.9392em;
-}
-
-.scale-s #tailwindcss .planet {
-  font-size: 15.2172em;
-}
-
-.scale-s #neptune .planet {
-  font-size: 14.7732em;
-}
-
-/* --------------------------------------------------------------------------- stretched orbits */
-.scale-stretched #vue.orbit {
+/* --------------------------------------------------------------------------- orbits */
+.orbit1 {
   width: 32em;
   height: 32em;
   margin-top: -16em;
   margin-left: -16em;
 }
 
-.scale-stretched #js.orbit {
+.orbit2 {
   width: 40em;
   height: 40em;
   margin-top: -20em;
   margin-left: -20em;
 }
 
-.scale-stretched #flutter.orbit {
+.orbit3 {
   width: 56em;
   height: 56em;
   margin-top: -28em;
   margin-left: -28em;
 }
 
-.scale-stretched #flutter .orbit {
-  width: 6em;
-  height: 6em;
-  margin-top: -3em;
-  margin-left: -3em;
-}
-
-.scale-stretched #react.orbit {
+.orbit4 {
   width: 72em;
   height: 72em;
   margin-top: -36em;
   margin-left: -36em;
-}
-
-.scale-stretched #php.orbit {
-  width: 100em;
-  height: 100em;
-  margin-top: -50em;
-  margin-left: -50em;
-}
-
-.scale-stretched #ts.orbit {
-  width: 150em;
-  height: 150em;
-  margin-top: -75em;
-  margin-left: -75em;
-}
-
-.scale-stretched #tailwindcss.orbit {
-  width: 186em;
-  height: 186em;
-  margin-top: -93em;
-  margin-left: -93em;
-}
-
-.scale-stretched #neptune.orbit {
-  width: 210em;
-  height: 210em;
-  margin-top: -105em;
-  margin-left: -105em;
-}
-
-/* --------------------------------------------------------------------------- scaled orbits */
-/* --------------------------------------------------------------------------- distance scale orbits */
-.scale-d #vue.orbit {
-  width: 44.74176em;
-  height: 44.74176em;
-  margin-top: -22.37088em;
-  margin-left: -22.37088em;
-}
-
-.scale-d #js.orbit {
-  width: 47.35737em;
-  height: 47.35737em;
-  margin-top: -23.67869em;
-  margin-left: -23.67869em;
-}
-
-.scale-d #flutter.orbit {
-  width: 49.50959em;
-  height: 49.50959em;
-  margin-top: -24.75479em;
-  margin-left: -24.75479em;
-}
-
-.scale-d #react.orbit {
-  width: 53.58356em;
-  height: 53.58356em;
-  margin-top: -26.79178em;
-  margin-left: -26.79178em;
-}
-
-.scale-d #php.orbit {
-  width: 82.2042em;
-  height: 82.2042em;
-  margin-top: -41.1021em;
-  margin-left: -41.1021em;
-}
-
-.scale-d #ts.orbit {
-  width: 115.91713em;
-  height: 115.91713em;
-  margin-top: -57.95857em;
-  margin-left: -57.95857em;
-}
-
-.scale-d #tailwindcss.orbit {
-  width: 191.00471em;
-  height: 191.00471em;
-  margin-top: -95.50235em;
-  margin-left: -95.50235em;
-}
-
-.scale-d #neptune.orbit {
-  width: 275.64709em;
-  height: 275.64709em;
-  margin-top: -137.82355em;
-  margin-left: -137.82355em;
-}
-
-/* Moon */
-.scale-d #flutter .orbit {
-  width: 1em;
-  height: 1em;
-  margin-top: -0.5em;
-  margin-left: -0.5em;
-}
-
-/* --------------------------------------------------------------------------- size scale orbits */
-.scale-s #vue.orbit {
-  width: 441.3048em;
-  height: 441.3048em;
-  margin-top: -220.6524em;
-  margin-left: -220.6524em;
-}
-
-.scale-s #js.orbit {
-  width: 457.3048em;
-  height: 457.3048em;
-  margin-top: -228.6524em;
-  margin-left: -228.6524em;
-}
-
-.scale-s #flutter.orbit {
-  width: 473.3048em;
-  height: 473.3048em;
-  margin-top: -236.6524em;
-  margin-left: -236.6524em;
-}
-
-.scale-s #react.orbit {
-  width: 489.3048em;
-  height: 489.3048em;
-  margin-top: -244.6524em;
-  margin-left: -244.6524em;
-}
-
-.scale-s #php.orbit {
-  width: 561.3048em;
-  height: 561.3048em;
-  margin-top: -280.6524em;
-  margin-left: -280.6524em;
-}
-
-.scale-s #ts.orbit {
-  width: 705.3048em;
-  height: 705.3048em;
-  margin-top: -352.6524em;
-  margin-left: -352.6524em;
-}
-
-.scale-s #tailwindcss.orbit {
-  width: 817.3048em;
-  height: 817.3048em;
-  margin-top: -408.6524em;
-  margin-left: -408.6524em;
-}
-
-.scale-s #neptune.orbit {
-  width: 881.3048em;
-  height: 881.3048em;
-  margin-top: -440.6524em;
-  margin-left: -440.6524em;
-}
-
-/* Moon */
-.scale-s #flutter .orbit {
-  width: 1em;
-  height: 1em;
-  margin-top: -0.5em;
-  margin-left: -0.5em;
 }
 
 /* --------------------------------------------------------------------------- text infos data */
@@ -818,18 +407,38 @@
   content: "4,498,396,441 km";
 }
 
-/* --------------------------------------------------------------------------- planets starting position and lighting effect */
-/* --------------------------------------------------------------------------- mercury ; pos: Top */
-#vue .pos {
+.pos1 {
+  left: 100%;
+  top: 50%;
+}
+
+.pos2 {
+  left: 50%;
+  top: 100%;
+}
+.pos3 {
+  left: 0;
+  top: 50%;
+}
+.pos4 {
   left: 50%;
   top: -1%;
 }
 
-#vue .planet {
-  animation-name: shadow-mercury;
+.shadow1 {
+  animation-name: shadow-1;
+}
+.shadow2 {
+  animation-name: shadow-2;
+}
+.shadow3 {
+  animation-name: shadow-3;
+}
+.shadow4 {
+  animation-name: shadow-4;
 }
 
-@keyframes shadow-mercury {
+@keyframes shadow-1 {
   0% {
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
     /* TOP */
@@ -861,23 +470,7 @@
   }
 }
 
-.scaled.view-2D #vue .planet,
-.scaled.view-3D #vue .planet {
-  box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
-  /* RIGHT */
-}
-
-/* --------------------------------------------------------------------------- venus ; pos: Left */
-#js .pos {
-  left: 0;
-  top: 50%;
-}
-
-#js .planet {
-  animation-name: shadow-venus;
-}
-
-@keyframes shadow-venus {
+@keyframes shadow-2 {
   0% {
     box-shadow: inset 4px 0 2px rgba(0, 0, 0, 0.5);
     /* LEFT */
@@ -909,23 +502,7 @@
   }
 }
 
-.scaled.view-2D #js .planet,
-.scaled.view-3D #js .planet {
-  box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
-  /* RIGHT */
-}
-
-/* --------------------------------------------------------------------------- earth ; pos: Right */
-#flutter .pos {
-  left: 100%;
-  top: 50%;
-}
-
-#flutter .planet {
-  animation-name: shadow-earth;
-}
-
-@keyframes shadow-earth {
+@keyframes shadow-3 {
   0% {
     box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
     /* RIGHT */
@@ -957,29 +534,7 @@
   }
 }
 
-.scaled.view-2D #flutter .planet,
-.scaled.view-3D #flutter .planet {
-  box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
-  /* RIGHT */
-}
-
-/* --------------------------------------------------------------------------- moon */
-#flutter .orbit .pos {
-  left: 100%;
-  top: 50%;
-}
-
-/* --------------------------------------------------------------------------- mars ; pos: Bottom */
-#react .pos {
-  left: 50%;
-  top: 100%;
-}
-
-#react .planet {
-  animation-name: shadow-mars;
-}
-
-@keyframes shadow-mars {
+@keyframes shadow-4 {
   0% {
     box-shadow: inset -18px -10px 10px rgba(0, 0, 0, 0.5);
     /* BOTTOM */
@@ -1010,223 +565,6 @@
     /* BOTTOM */
   }
 }
-
-.scaled.view-2D #react .planet,
-.scaled.view-3D #react .planet {
-  box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
-  /* RIGHT */
-}
-
-/* --------------------------------------------------------------------------- jupiter ; pos: Right */
-#php .pos {
-  left: 100%;
-  top: 50%;
-}
-
-#php .planet {
-  animation-name: shadow-jupiter;
-}
-
-@keyframes shadow-jupiter {
-  0% {
-    box-shadow: inset -16px 0 5px rgba(0, 0, 0, 0.5);
-    /* RIGHT */
-  }
-
-  25% {
-    box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.5);
-    /* TOP */
-  }
-
-  50% {
-    box-shadow: inset 16px 0 5px rgba(0, 0, 0, 0.5);
-    /* LEFT */
-  }
-
-  75% {
-    box-shadow: inset 94px -30px 40px rgba(0, 0, 0, 0.5);
-    /* BOTTOM */
-  }
-
-  75.01% {
-    box-shadow: inset -94px -30px 40px rgba(0, 0, 0, 0.5);
-    /* BOTTOM */
-  }
-
-  100% {
-    box-shadow: inset -16px 0 5px rgba(0, 0, 0, 0.5);
-    /* RIGHT */
-  }
-}
-
-.scaled.view-2D #php .planet,
-.scaled.view-3D #php .planet {
-  box-shadow: inset -16px 0 5px rgba(0, 0, 0, 0.5);
-  /* RIGHT */
-}
-
-/* --------------------------------------------------------------------------- saturn ; pos: Left */
-#ts .pos {
-  left: 0%;
-  top: 50%;
-}
-
-#ts .planet {
-  animation-name: shadow-saturn;
-}
-
-@keyframes shadow-saturn {
-  0% {
-    box-shadow: inset 16px 0 5px rgba(0, 0, 0, 0.5);
-    /* LEFT */
-  }
-
-  25% {
-    box-shadow: inset 80px -30px 50px rgba(0, 0, 0, 0.5);
-    /* BOTTOM */
-  }
-
-  25.01% {
-    box-shadow: inset -94px -30px 40px rgba(0, 0, 0, 0.5);
-    /* BOTTOM */
-  }
-
-  50% {
-    box-shadow: inset -16px 0 5px rgba(0, 0, 0, 0.5);
-    /* RIGHT */
-  }
-
-  75% {
-    box-shadow: inset -2px 3px 2px rgba(0, 0, 0, 0.5);
-    /* TOP */
-  }
-
-  100% {
-    box-shadow: inset 16px 0 5px rgba(0, 0, 0, 0.5);
-    /* LEFT */
-  }
-}
-
-.scaled.view-2D #ts .planet,
-.scaled.view-3D #ts .planet {
-  box-shadow: inset -16px 0 5px rgba(0, 0, 0, 0.5);
-  /* RIGHT */
-}
-
-/* --------------------------------------------------------------------------- saturn ring */
-/*
-
-#ts .ring           { animation-name:     shadow-saturn-ring; }
-
-@keyframes 
-shadow-saturn-ring{ 0%   { box-shadow: inset -16px  0      4px   rgba(20, 40, 50, 0.45); opacity: .4; }
-                  25%    { box-shadow: inset -5px   -30px   12px  rgba(20, 40, 50, 0.3);  opacity: 1; }
-                  25.01% { box-shadow: inset 5px    -30px   12px  rgba(20, 40, 50, 0.3);  opacity: 1; }
-                  50%    { box-shadow: inset 16px   0      4px   rgba(20, 40, 50, 0.45);  opacity: .4; }
-                  75%    { box-shadow: inset 0      30px  50px  rgba(20, 40, 50, 0);  opacity: .3; }
-                  100%   { box-shadow: inset -16px  0      4px   rgba(20, 40, 50, 0.45);  opacity: .4; }
-                }
-
-.scaled.view-2D #ts .ring,
-.scaled.view-3D #ts .ring { box-shadow: inset 16px   0      4px   rgba(20, 40, 50, 0.6); }
-
-*/
-/* --------------------------------------------------------------------------- uranus ; pos: Left */
-#tailwindcss .pos {
-  left: 0;
-  top: 50%;
-}
-
-#tailwindcss .planet {
-  animation-name: shadow-uranus;
-}
-
-@keyframes shadow-uranus {
-  0% {
-    box-shadow: inset 8px 0 5px rgba(0, 0, 0, 0.5);
-    /* LEFT */
-  }
-
-  25% {
-    box-shadow: inset 40px -15px 40px rgba(0, 0, 0, 0.5);
-    /* BOTTOM */
-  }
-
-  25.01% {
-    box-shadow: inset -40px -15px 40px rgba(0, 0, 0, 0.5);
-    /* BOTTOM */
-  }
-
-  50% {
-    box-shadow: inset -8px 0 5px rgba(0, 0, 0, 0.5);
-    /* RIGHT */
-  }
-
-  75% {
-    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
-    /* TOP */
-  }
-
-  100% {
-    box-shadow: inset 8px 0 5px rgba(0, 0, 0, 0.5);
-    /* LEFT */
-  }
-}
-
-.scaled.view-2D #tailwindcss .planet,
-.scaled.view-3D #tailwindcss .planet {
-  box-shadow: inset -8px 0 5px rgba(0, 0, 0, 0.5);
-  /* RIGHT */
-}
-
-/* --------------------------------------------------------------------------- neptune ; pos: Top */
-#neptune .pos {
-  left: 50%;
-  top: 0;
-}
-
-#neptune .planet {
-  animation-name: shadow-neptune;
-}
-
-@keyframes shadow-neptune {
-  0% {
-    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
-    /* TOP */
-  }
-
-  25% {
-    box-shadow: inset 12px 0 5px rgba(0, 0, 0, 0.5);
-    /* LEFT */
-  }
-
-  50% {
-    box-shadow: inset 50px -15px 40px rgba(0, 0, 0, 0.5);
-    /* BOTTOM */
-  }
-
-  50.01% {
-    box-shadow: inset -50px -15px 40px rgba(0, 0, 0, 0.5);
-    /* BOTTOM */
-  }
-
-  75% {
-    box-shadow: inset -12px 0 5px rgba(0, 0, 0, 0.5);
-    /* RIGHT */
-  }
-
-  100% {
-    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
-    /* TOP */
-  }
-}
-
-.scaled.view-2D #neptune .planet,
-.scaled.view-3D #neptune .planet {
-  box-shadow: inset -12px 0 5px rgba(0, 0, 0, 0.5);
-  /* RIGHT */
-}
-
 /* --------------------------------------------------------------------------- DEBUG 
 .pos, 
 .planet, 
@@ -1293,28 +631,13 @@ dl.infos dd span:after {
   text-shadow: 1px 1px 2px black;
 }
 
-.sun #skill .infos,
-.mercury #vue .infos,
-.venus #js .infos,
-.earth #flutter .infos,
-.mars #react .infos,
-.jupiter #php .infos,
-.saturn #ts .infos,
-.uranus #tailwindcss .infos,
-.neptune #neptune .infos {
+.infos {
   display: block;
   opacity: 1;
   transform: rotateX(0deg);
 }
 
-.mercury #vue.orbit,
-.venus #js.orbit,
-.earth #flutter.orbit,
-.mars #react.orbit,
-.jupiter #php.orbit,
-.saturn #ts.orbit,
-.uranus #tailwindcss.orbit,
-.neptune #neptune.orbit {
+.orbit {
   border: 1px solid rgba(255, 255, 255, 0.8);
 }
 

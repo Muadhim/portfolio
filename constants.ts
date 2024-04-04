@@ -16,38 +16,19 @@ export const aboutMe =
 
 export const workExperiences = [
   {
-    imageUrl: "dd",
-    title:
-      "Work Experience Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum tempora, nostrum culpa amet dolorum ut tempore aperiam? Alias odit nihil expedita magni sapiente eaque! Doloribus blanditiis voluptates architecto fugiat odio!",
+    imageUrl:
+      "https://refactory.id/_app/immutable/assets/refactory-logo.820ec56e.png",
+    title: "Junior Software Engineer at Refactory",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum tempora, nostrum culpa amet dolorum ut tempore aperiam? Alias odit nihil expedita magni sapiente eaque! Doloribus blanditiis voluptates architecto fugiat odio!",
-  },
-  {
-    imageUrl: "dd",
-    title: "Work Experience 2",
-    desc: "",
-  },
-  {
-    imageUrl: "",
-    title: "Work Experience 3",
-    desc: "",
-  },
-  {
-    imageUrl: "",
-    title: "Work Experience 4",
-    desc: "",
-  },
-  {
-    imageUrl: "",
-    title: "Work Experience 5",
-    desc: "",
   },
 ];
 
 export const menu = [
   { id: 1, title: "About" },
   { id: 2, title: "Experience" },
-  { id: 3, title: "Project" },
-  { id: 4, title: "Contact" },
+  { id: 3, title: "Skill" },
+  { id: 4, title: "Project" },
+  { id: 5, title: "Contact" },
 ];
 
 export const projects = [
@@ -55,50 +36,54 @@ export const projects = [
     title: "Project 1",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum tempora, nostrum culpa amet dolorum ut tempore aperiam? Alias odit nihil expedita magni sapiente eaque! Doloribus blanditiis voluptates architecto fugiat odio!",
     link: "https://github.com/Muadhim",
-    image: "https://picsum.photos/200/300",
+    image: "http://localhost:3000/_nuxt/assets/images/flutter.svg",
     imageAlt: "Project 1",
     type: "Feature Project",
   },
   {
-    title: "Project 1",
+    title: "Mytok",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum tempora, nostrum culpa amet dolorum ut tempore aperiam? Alias odit nihil expedita magni sapiente eaque! Doloribus blanditiis voluptates architecto fugiat odio!  aperiam? Alias odit nihil expedita magni sapiente eaque! Doloribus blanditiis voluptates architecto fugiat odio!  aperiam? Alias odit nihil expedita magni sapiente eaque! Doloribus blanditiis voluptates architecto fugiat odio! ",
     link: "https://github.com/Muadhim",
-    image: "https://picsum.photos/200/300",
+    image: "http://localhost:3000/_nuxt/assets/images/mytok-login.png",
     imageAlt: "Project 1",
+    type: "employee management app",
   },
 ];
 
 export const skills = [
   {
-    title: "skills",
-    desc: "",
-  },
-  {
-    title: "vue",
+    id: "vue",
     desc: "vue desc",
+    image: "http://localhost:3000/_nuxt/assets/images/vue.svg",
   },
   {
-    title: "js",
+    id: "js",
     desc: "js desc",
+    image: "http://localhost:3000/_nuxt/assets/images/js.svg",
   },
   {
-    title: "ts",
+    id: "ts",
     desc: "ts desc",
+    image: "http://localhost:3000/_nuxt/assets/images/ts.svg",
   },
   {
-    title: "flutter",
+    id: "flutter",
     desc: "flutter desc",
+    image: "http://localhost:3000/_nuxt/assets/images/flutter.svg",
   },
   {
-    title: "react",
+    id: "react",
     desc: "react desc",
+    image: "http://localhost:3000/_nuxt/assets/images/react.svg",
   },
   {
-    title: "php",
+    id: "php",
     desc: "php desc",
+    image: "http://localhost:3000/_nuxt/assets/images/flutter.svg",
   },
   {
-    title: "tailwindcss",
+    id: "tailwindcss",
     desc: "tailwindcss desc",
+    image: "http://localhost:3000/_nuxt/assets/images/react.svg",
   },
 ];

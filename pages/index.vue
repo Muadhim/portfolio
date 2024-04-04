@@ -23,8 +23,8 @@
         </div>
       </div>
       <div class="mt-4">
-        <h1 class="text-5xl font-normal">I'm a {{ profession }}.</h1>
-        <h2 class="text-xl font-normal"
+        <h1 class="text-5xl font-normal text-left">I'm a {{ profession }}.</h1>
+        <h2 v-if="profession" class="text-xl font-normal"
           >Currently, I'm a {{ profession }} at
           <NuxtImg class="w-6 inline-block" :src="officeLogo" />
           <NuxtLink :to="officeUrl" target="_blank">{{ workIn }}</NuxtLink>
@@ -39,7 +39,9 @@
         <div
           class="profile-shine absolute w-[800px] h-[800px] profile-shine -z-30 left-1/2 -translate-x-1/2"
         />
-        <ul class="flex flex-wrap w-full max-w-[1165px] mx-auto mt-5 gap-5">
+        <ul
+          class="flex justify-center flex-wrap w-full max-w-[1165px] mx-auto mt-5 gap-5"
+        >
           <li v-for="(exp, index) in workExperiences" :key="index" class="">
             <WorkCard
               v-if="index < 4"
@@ -57,7 +59,8 @@
       </div>
     </div>
 
-    <div id="skills" class="my-48">
+    <div id="skills" class="my-32">
+      <h2 class="text-4xl mb-10">My Skill</h2>
       <Skills />
     </div>
 
