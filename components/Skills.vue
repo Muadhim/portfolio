@@ -1,6 +1,5 @@
 <template>
   <div class="w-full h-[600px] view-3D">
-    <div id="title" class="">My Skills</div>
     <div id="universe" class="scale-stretched">
       <div id="solar-system" class="earth">
         <div v-for="(skill, index) in skills" :key="index">
