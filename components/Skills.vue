@@ -21,8 +21,11 @@
                   'animation-duration': index + 20 + 's',
                 }"
               >
-                <dl class="infos">
-                  <dt>{{ skill.desc }}</dt>
+                <dl
+                  class="infos"
+                  :class="{ 'active-infos': skill.id == solarsysClass }"
+                >
+                  <dt>{{ skill.id }}</dt>
                   <dd><span></span></dd>
                 </dl>
               </div>
@@ -41,7 +44,8 @@
       <a
         v-for="(skill, index) in skills"
         :key="index"
-        :class="skill.id"
+        :class="{ [skill.id]: true, active: skill.id == solarsysClass }"
+        class="text-primary"
         :title="skill.id"
         :href="'#' + skill.id + 'info'"
         @click="showInfo(skill.id)"
@@ -60,7 +64,6 @@ const orbitClass = (index: number) => `orbit${(index % 4) + 1}`;
 const planetClass = (index: number) => `shadow${(index % 4) + 1}`;
 const posClass = (index: number) => `pos${(index % 4) + 1}`;
 const showInfo = (ref: string) => {
-  console.log("show info " + ref);
   solarsysClass.value = ref;
 };
 </script>

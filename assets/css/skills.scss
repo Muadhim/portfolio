@@ -16,6 +16,11 @@
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
+  transform: rotateX(75deg);
+}
+
+.ring {
+  transform: rotateX(90deg);
 }
 
 .orbit {
@@ -67,6 +72,7 @@
   background-size: contain;
   background-position: center;
   box-shadow: 0 0 60px $primary;
+  transform: rotateX(-90deg);
 }
 
 .planet {
@@ -77,6 +83,7 @@
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   font-size: 5em;
+  transform: rotateX(0deg);
 }
 
 /* --------------------------------------------------------------------------- animations */
@@ -565,13 +572,6 @@
     /* BOTTOM */
   }
 }
-/* --------------------------------------------------------------------------- DEBUG 
-.pos, 
-.planet, 
-.orbit,
-.ring { animation-duration: 20s!important; }
-
-/* */
 /* --------------------------------------------------------------------------- navigation styles */
 dl.infos {
   position: absolute;
@@ -660,22 +660,9 @@ h1 {
   color: rgba(255, 255, 255, 0.8);
 }
 
-#data a,
 #data a:hover,
 #data a.active {
-  color: $primary;
-}
-
-#toggle-data {
-  left: 0;
-}
-
-.data-close #data {
-  left: -100%;
-}
-
-.data-open #data {
-  left: 0px;
+  color: $secondary;
 }
 
 #data a {
@@ -748,24 +735,14 @@ h1 {
   transition-delay: 0s;
 }
 
-h1,
-#data,
-#controls {
+#data {
   transition-property: opacity, margin;
   transition-duration: 0.8s;
   transition-timing-function: ease-in-out;
 }
 
-h1 {
-  transition-delay: 0.35s;
-}
-
 #data {
   transition-delay: 0.7s;
-}
-
-#controls {
-  transition-delay: 1s;
 }
 
 /* --------------------------------------------------------------------------- responsive styles */
@@ -799,20 +776,8 @@ h1 {
     font-size: 73%;
   }
 
-  #navbar,
-  #controls,
   #data {
     background: transparent;
-  }
-
-  h1 {
-    font-size: 22px;
-    margin-top: 8px;
-  }
-
-  #controls {
-    padding-right: 32px;
-    top: 12px;
   }
 
   #data {
@@ -833,11 +798,6 @@ h1 {
   .data-close #data {
     left: 0px;
   }
-
-  .controls-open #controls,
-  .controls-close #controls {
-    right: 0px;
-  }
 }
 @media screen and (min-width: 1300px) {
   #universe {
@@ -848,4 +808,11 @@ h1 {
   .zoom-close .scale-d #solar-system {
     margin-left: -120%;
   }
+}
+
+.active-infos {
+  display: block;
+  opacity: 1;
+  transform: rotateX(0deg);
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
