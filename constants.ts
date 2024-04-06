@@ -6,7 +6,7 @@ export const profession = "Software Engineer";
 export const workIn = "Refactory";
 export const officeUrl = "https://refactory.id/";
 export const officeLogo =
-  "https://refactory.id/_app/immutable/assets/refactory-logo-2ed41d7c.png";
+  "https://refactory.id/_app/immutable/assets/refactory-logo.2ed41d7c.png";
 export const profileImage = "profile.png";
 export const justText0 = "Tetap Hidup Walaupun Gak Jago Ngoding";
 export const justText1 =

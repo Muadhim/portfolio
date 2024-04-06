@@ -2,7 +2,7 @@
   <div
     class="w-[570px] h-[192.5px] rounded-2xl bg-[#232D3F99] flex items-center gap-8 px-12 border-t-2 border-primary"
   >
-    <img
+    <NuxtImg
       v-if="imageSrc"
       :src="imageSrc"
       :alt="title"

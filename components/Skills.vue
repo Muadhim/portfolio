@@ -1,28 +1,31 @@
 <template>
   <div class="w-full h-[600px] view-3D">
     <div id="universe" class="scale-stretched">
-      <div id="solar-system" class="earth">
+      <div id="solar-system" :class="solarsysClass">
         <div v-for="(skill, index) in skills" :key="index">
           <div
             :id="skill.id"
             class="orbit"
-            :class="orbitClass(skill.id)"
+            :class="orbitClass(index)"
             :style="{
               zIndex: index + 1,
               'animation-duration': index + 20 + 's',
             }"
           >
-            <div class="pos" :class="posClass(skill.id)">
+            <div class="pos" :class="posClass(index)">
               <div
                 class="planet"
-                :class="planetClass(skill.id)"
+                :class="planetClass(index)"
                 :style="{
                   'background-image': 'url(' + skill.image + ')',
                   'animation-duration': index + 20 + 's',
                 }"
               >
-                <dl class="infos">
-                  <dt>{{ skill.desc }}</dt>
+                <dl
+                  class="infos"
+                  :class="{ 'active-infos': skill.id == solarsysClass }"
+                >
+                  <dt>{{ skill.id }}</dt>
                   <dd><span></span></dd>
                 </dl>
               </div>
@@ -41,10 +44,11 @@
       <a
         v-for="(skill, index) in skills"
         :key="index"
-        :class="skill.id"
-        title="sun"
-        href="#sunspeed"
-        @click="showData"
+        :class="{ [skill.id]: true, active: skill.id == solarsysClass }"
+        class="text-primary"
+        :title="skill.id"
+        :href="'#' + skill.id + 'info'"
+        @click="showInfo(skill.id)"
       >
         {{ skill.id }}
       </a>
@@ -55,58 +59,13 @@
 <script lang="ts" setup>
 import { skills } from "~/constants";
 
-const orbitClass = (id: string) => {
-  const index = skills.findIndex((skill) => skill.id === id);
-  const condition = index % 4;
-
-  switch (condition) {
-    case 0:
-      return "orbit1";
-    case 1:
-      return "orbit2";
-    case 2:
-      return "orbit3";
-    case 3:
-      return "orbit4";
-    default:
-      return "";
-  }
+const solarsysClass = ref("");
+const orbitClass = (index: number) => `orbit${(index % 4) + 1}`;
+const planetClass = (index: number) => `shadow${(index % 4) + 1}`;
+const posClass = (index: number) => `pos${(index % 4) + 1}`;
+const showInfo = (ref: string) => {
+  solarsysClass.value = ref;
 };
-const planetClass = (id: string) => {
-  const index = skills.findIndex((skill) => skill.id === id);
-  const condition = index % 4;
-
-  switch (condition) {
-    case 0:
-      return "shadow1";
-    case 1:
-      return "shadow2";
-    case 2:
-      return "shadow3";
-    case 3:
-      return "shadow4";
-    default:
-      return "";
-  }
-};
-const posClass = (id: string) => {
-  const index = skills.findIndex((skill) => skill.id === id);
-  const condition = index % 4;
-
-  switch (condition) {
-    case 0:
-      return "pos1";
-    case 1:
-      return "pos2";
-    case 2:
-      return "pos3";
-    case 3:
-      return "pos4";
-    default:
-      return "";
-  }
-};
-const showData = () => {};
 </script>
 
 <style lang="scss">
