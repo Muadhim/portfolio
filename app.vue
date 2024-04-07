@@ -23,5 +23,5 @@ useSeoMeta({
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Preahvihear&display=swap");
 </style>

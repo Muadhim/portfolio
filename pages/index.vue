@@ -107,4 +107,19 @@ import {
   workExperiences,
   projects,
 } from "~/constants";
+
+import { supabase } from "~/plugin/supabase";
+const about_me = ref();
+async function getAboutMe() {
+  const { data } = await supabase.from("about_me").select();
+  about_me.value = data;
+  console.log("data", data);
+  console.log("about me: ", about_me.value);
+}
+
+onMounted(() => {
+  console.log("test");
+  console.log("about me: ", about_me.value);
+  getAboutMe();
+});
 </script>
