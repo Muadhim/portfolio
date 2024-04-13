@@ -12,7 +12,7 @@
       </div>
     </div>
     <div :class="imageContainerClass">
-      <img :class="imageClass" :src="imageSrc" />
+      <NuxtImg v-if="imageSrc" :class="imageClass" :src="imageSrc" />
     </div>
   </div>
 </template>

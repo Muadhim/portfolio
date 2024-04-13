@@ -1,6 +1,8 @@
 <template>
   <div class="w-full max-w-[1200px] mx-auto">
-    <div id="about">
+    <div class="loader z-50">loading</div>
+    <div v-if="isLoading"> </div>
+    <div v-else id="about">
       <div class="w-4/6 mt-28 flex relative justify-between py-10">
         <div class="absolute -top-10 left-32">
           <img
@@ -11,31 +13,44 @@
         </div>
         <div class="absolute -top-14 left-56">
           Hello I Am
-          <span class="text-primary font-bold text-2xl">{{ name }}</span>
+          <span class="text-primary font-bold text-2xl">{{
+            about_me?.name
+          }}</span>
         </div>
         <div class="profile-shine absolute w-96 h-96 -top-10 -left-20 -z-30" />
         <div class="w-52 h-52 rounded-full overflow-hidden relative">
-          <img
-            src="@/assets/images/profile.png"
+          <NuxtImg
+            :src="about_me?.profile_img ?? '@/assets/images/profile.png'"
+            loading="lazy"
             alt="profile"
             class="object-cover"
           />
         </div>
         <div class="justify-end w-2/3">
-          <div class="text-5xl hover-text-shadow">{{ justText0 }}</div>
-          <div class="text-md mt-4">{{ justText1 }}&#128517;</div>
+          <div class="text-5xl hover-text-shadow">{{
+            about_me?.motivation
+          }}</div>
+          <div class="text-md mt-4">{{ about_me?.motivation2 }}</div>
         </div>
       </div>
       <div class="mt-4">
-        <h1 class="text-5xl font-normal text-left">I'm a {{ profession }}.</h1>
-        <h2 v-if="profession" class="text-xl font-normal"
-          >Currently, I'm a {{ profession }} at
-          <NuxtImg class="w-6 inline-block" :src="officeLogo" />
-          <NuxtLink :to="officeUrl" target="_blank" class="text-primary ml-1">{{
-            workIn
-          }}</NuxtLink>
+        <h1 class="text-5xl font-normal text-left"
+          >I'm a {{ about_me?.profession }}.</h1
+        >
+        <h2 v-if="about_me?.current_job" class="text-xl font-normal"
+          >Currently, I'm a {{ about_me?.profession }} at
+          <NuxtImg
+            class="w-6 inline-block"
+            :src="about_me.current_office_url!"
+          />
+          <NuxtLink
+            :to="about_me.current_office_url!"
+            target="_blank"
+            class="text-primary ml-1"
+            >{{ about_me.current_job }}</NuxtLink
+          >
         </h2>
-        <p class="w-full max-w-[892px] mt-16 text-2xl">{{ aboutMe }}</p>
+        <p class="w-full max-w-[892px] mt-16 text-2xl">{{ about_me?.desc }}</p>
       </div>
     </div>
 
@@ -48,17 +63,17 @@
         <ul
           class="flex justify-center flex-wrap w-full max-w-[1165px] mx-auto mt-5 gap-5"
         >
-          <li v-for="(exp, index) in workExperiences" :key="index" class="">
+          <li v-for="(exp, index) in work_experience" :key="index" class="">
             <WorkCard
               v-if="index < 4"
-              :image-src="exp.imageUrl"
-              :title="exp.title"
-              :desc="exp.desc"
+              :image-src="exp.image!"
+              :title="exp.title!"
+              :desc="exp.desc!"
             />
           </li>
         </ul>
         <button
-          v-if="workExperiences.length > 4"
+          v-if="work_experience?.length! > 4"
           class="mx-auto text-primary hover-text-shadow"
           >See more...</button
         >
@@ -75,16 +90,16 @@
         <li v-for="(proj, index) in projects" :key="index" class="my-10">
           <ProjectCard
             v-if="index < 4"
-            :title="proj.title"
-            :description="proj.desc"
-            :imageSrc="proj.image"
-            :project-type="proj.type"
+            :title="proj?.title ?? ''"
+            :description="proj?.desc ?? ''"
+            :imageSrc="proj?.image ?? ''"
+            :project-type="proj?.type ?? ''"
             :is-left-to-right="index % 2 === 0"
           />
         </li>
       </ul>
       <button
-        v-if="projects.length > 4"
+        v-if="projects?.length! > 4"
         class="mx-auto text-primary hover-text-shadow"
         >See more...</button
       >
@@ -95,31 +110,78 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  name,
-  justText0,
-  justText1,
-  profession,
-  workIn,
-  officeLogo,
-  officeUrl,
-  aboutMe,
-  workExperiences,
-  projects,
-} from "~/constants";
+import type { Database, Tables } from "@/types/supabase";
 
-import { supabase } from "~/plugin/supabase";
-const about_me = ref();
+const supabase = useSupabaseClient<Database>();
+
+const about_me = ref<Tables<"about_me"> | null>(null);
+const projects = ref<Tables<"project">[] | null>(null);
+const work_experience = ref<Tables<"work_experience">[] | null>(null);
+
+const isLoading = ref(true);
+
 async function getAboutMe() {
-  const { data } = await supabase.from("about_me").select();
-  about_me.value = data;
-  console.log("data", data);
-  console.log("about me: ", about_me.value);
+  try {
+    const { data, error } = await supabase
+      .from("about_me")
+      .select("*")
+      .returns<Tables<"about_me">>()
+      .single();
+
+    if (error) throw error;
+
+    if (data) about_me.value = data;
+  } catch (error) {
+    console.error(
+      "Error fetching about_me:",
+      error instanceof Error ? error.message : "Unknown error"
+    );
+  }
 }
 
+async function getProject() {
+  try {
+    const { data, error } = await supabase
+      .from("project")
+      .select("*")
+      .returns<Tables<"project">[]>();
+
+    if (error) throw error;
+
+    if (data) projects.value = data;
+  } catch (error) {
+    console.error(
+      "Error fetching project:",
+      error instanceof Error ? error.message : "Unknown error"
+    );
+  }
+}
+
+async function getWorkExperience() {
+  try {
+    const { data, error } = await supabase
+      .from("work_experience")
+      .select("*")
+      .returns<Tables<"work_experience">[]>();
+
+    if (error) throw error;
+
+    if (data) work_experience.value = data;
+  } catch (error) {
+    console.error(
+      "Error fetching work experience:",
+      error instanceof Error ? error.message : "Unknown error"
+    );
+  }
+}
+async function loaded() {
+  isLoading.value = true;
+  await getAboutMe();
+  await getProject();
+  await getWorkExperience();
+  isLoading.value = false;
+}
 onMounted(() => {
-  console.log("test");
-  console.log("about me: ", about_me.value);
-  getAboutMe();
+  loaded();
 });
 </script>
