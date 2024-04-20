@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-[600px] view-3D">
+  <div class="w-full h-[500px] view-3D">
     <div id="universe" class="scale-stretched">
       <div id="solar-system" :class="solarsysClass">
         <div v-for="(skill, index) in skills" :key="index">
