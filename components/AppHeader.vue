@@ -4,8 +4,10 @@
   >
     <div class="w-1/2 flex justify-center">Mu'adhim</div>
     <div class="w-1/2 flex justify-around">
-      <ul v-for="conf in menu" :key="conf.id">
-        <li class="cursor-pointer">{{ conf.title }}</li>
+      <ul class="flex justify-between w-3/4">
+        <li v-for="conf in menu" :key="conf.id" class="cursor-pointer">{{
+          conf.title
+        }}</li>
       </ul>
     </div>
   </div>

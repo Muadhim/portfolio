@@ -78,6 +78,35 @@ export type Database = {
         }
         Relationships: []
       }
+      project_tech: {
+        Row: {
+          created_at: string
+          id: number
+          project_id: number
+          tech: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          project_id: number
+          tech?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          project_id?: number
+          tech?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_project_tech_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "project"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       skill: {
         Row: {
           created_at: string

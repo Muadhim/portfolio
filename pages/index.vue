@@ -1,8 +1,16 @@
 <template>
-  <div class="w-full max-w-[1200px] mx-auto">
-    <div class="loader z-50">loading</div>
-    <div v-if="isLoading"> </div>
-    <div v-else id="about">
+  <div
+    v-if="isLoading"
+    class="w-full h-screen flex items-center justify-center"
+  >
+    <div class="loader"> </div>
+    <div
+      class="profile-shine absolute w-[800px] h-[800px] profile-shine -z-30 left-1/2 -translate-x-1/2"
+    >
+    </div>
+  </div>
+  <div v-else class="w-full max-w-[1200px] mx-auto px-4">
+    <div id="about">
       <div class="w-4/6 mt-28 flex relative justify-between py-10">
         <div class="absolute -top-10 left-32">
           <img
@@ -80,8 +88,7 @@
       </div>
     </div>
 
-    <div id="skills" class="my-28">
-      <h2 class="text-4xl mb-10">My Skill</h2>
+    <div id="skills" class="my-4">
       <Skills />
     </div>
 
@@ -95,6 +102,7 @@
             :imageSrc="proj?.image ?? ''"
             :project-type="proj?.type ?? ''"
             :is-left-to-right="index % 2 === 0"
+            :project-id="proj.id"
           />
         </li>
       </ul>
@@ -120,68 +128,38 @@ const work_experience = ref<Tables<"work_experience">[] | null>(null);
 
 const isLoading = ref(true);
 
-async function getAboutMe() {
+async function loadData() {
   try {
-    const { data, error } = await supabase
-      .from("about_me")
-      .select("*")
-      .returns<Tables<"about_me">>()
-      .single();
+    const [aboutMeData, projectData, workExperienceData] = await Promise.all([
+      supabase.from("about_me").select("*").single(),
+      supabase.from("project").select("*"),
+      supabase.from("work_experience").select("*"),
+    ]);
 
-    if (error) throw error;
+    if (aboutMeData.error || projectData.error || workExperienceData.error) {
+      throw new Error("Failed to fetch data");
+    }
 
-    if (data) about_me.value = data;
+    about_me.value = aboutMeData.data;
+    projects.value = projectData.data;
+    work_experience.value = workExperienceData.data;
+
+    console.log("project : " + projects.value?.map((e) => e));
   } catch (error) {
     console.error(
-      "Error fetching about_me:",
+      "Error fetching data:",
       error instanceof Error ? error.message : "Unknown error"
     );
+  } finally {
+    isLoading.value = false;
   }
 }
 
-async function getProject() {
-  try {
-    const { data, error } = await supabase
-      .from("project")
-      .select("*")
-      .returns<Tables<"project">[]>();
-
-    if (error) throw error;
-
-    if (data) projects.value = data;
-  } catch (error) {
-    console.error(
-      "Error fetching project:",
-      error instanceof Error ? error.message : "Unknown error"
-    );
-  }
-}
-
-async function getWorkExperience() {
-  try {
-    const { data, error } = await supabase
-      .from("work_experience")
-      .select("*")
-      .returns<Tables<"work_experience">[]>();
-
-    if (error) throw error;
-
-    if (data) work_experience.value = data;
-  } catch (error) {
-    console.error(
-      "Error fetching work experience:",
-      error instanceof Error ? error.message : "Unknown error"
-    );
-  }
-}
-async function loaded() {
-  isLoading.value = true;
-  await getAboutMe();
-  await getProject();
-  await getWorkExperience();
-  isLoading.value = false;
-}
 onMounted(() => {
-  loaded();
+  loadData();
 });
 </script>
+
+<style lang="scss">
+@import "~/assets/css/loader.scss";
+</style>
