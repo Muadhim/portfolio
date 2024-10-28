@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <NuxtLayout>
-      <AppHeader />
-      <NuxtPage />
-    </NuxtLayout>
-  </div>
+  <NuxtLayout>
+    <AppHeader />
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <script setup lang="ts">
 useHead({
   title: "Mu'adhim",
-  meta: [{ name: "description", content: "Mu'adhim portfolio" }],
+  meta: [{ name: "description", content: "Hello I Am Mu'adhim a software engineer" }],
 });
 
 useSeoMeta({

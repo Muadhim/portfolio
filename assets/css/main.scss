@@ -1,35 +1,40 @@
-$black: #0f0f0f;
-$grey: #232d3f;
-$primary: #008170;
-$secondary: #005b41;
+:root {
+  --black: #1A1A19;
+  --primary: #31511E;
+  --secondary: #F6FCDF;
+}
 
 * {
   font-family: "Preahvihear", sans-serif;
 }
 
 body {
-  background: $black;
-  color: white;
+  background: var(--black);
+  color: var(--secondary);
 }
 
 .hover-text-shadow:hover {
-  text-shadow: $secondary 1px 0 10px;
+  text-shadow: var(--primary) 1px 0 10px;
 }
 
 .profile-shine {
   border-radius: 431px;
-  background: radial-gradient(50% 50% at 50% 50%, $secondary -60%, $black 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    var(--primary) -60%,
+    var(--black) 100%
+  );
 }
 
 .btn {
   padding: 10px 20px;
-  border: 1px solid $secondary;
+  border: 1px solid var(--secondary);
   border-radius: 8px;
   font-size: 12px;
   line-height: 15px;
   width: fit-content;
   font-weight: 500;
-  background-color: #00817044;
+  background-color: rgba(0, 81, 112, 0.27);
 }
 
 .glass {
@@ -38,3 +43,4 @@ body {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
+

@@ -11,10 +11,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#008170',
-        secondary: '#005B41',
-        black: '#0F0F0F',
-        grey: '#232D3F'
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
+        black: 'var(--black)',
       },
       
       boxShadow: {
