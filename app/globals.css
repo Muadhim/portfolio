@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "tailwindcss-clip-path";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -45,8 +46,8 @@
 
 :root {
   --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.141 0.005 285.823);
+  --foreground: oklch(1 0 0);
+  --background: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
@@ -79,8 +80,8 @@
 }
 
 .dark {
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+  --background: oklch(0.985 0 0);
   --card: oklch(0.21 0.006 285.885);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.21 0.006 285.885);
@@ -120,5 +121,41 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .cp-bevel {
+    clip-path: polygon(16px 0%, calc(100% - 16px) 0%, 100% 16px,
+        100% calc(100% - 16px), calc(100% - 16px) 100%,
+        16px 100%, 0% calc(100% - 16px), 0% 16px);
+  }
+
+  .cp-bevel-tl {
+    clip-path: polygon(16px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 16px);
+  }
+
+  .cp-bevel-tr {
+    clip-path: polygon(0% 0%, calc(100% - 16px) 0%, 100% 16px, 100% 100%, 0% 100%);
+  }
+
+  .cp-bevel-bl {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 16px 100%, 0% calc(100% - 16px));
+  }
+
+  .cp-bevel-br {
+    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%);
+  }
+
+  .cp-full-bevel-bl {
+    clip-path: polygon(0% 0%, calc(100% - 16px) 0%, 100% 16px,
+        100% calc(100% - 16px), calc(100% - 16px) 100%,
+        50px 100%, 0% calc(100% - 50px), 0% 16px);
+  }
+
+  .cp-full-bevel-br {
+    clip-path: polygon(16px 0%, 100% 0%, 100% 16px,
+        100% calc(100% - 50px), calc(100% - 50px) 100%,
+        16px 100%, 0% calc(100% - 16px), 0% 16px);
   }
 }

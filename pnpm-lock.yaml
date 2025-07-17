@@ -63,6 +63,9 @@ importers:
       tailwindcss:
         specifier: ^4
         version: 4.1.11
+      tailwindcss-clip-path:
+        specifier: ^1.0.1
+        version: 1.0.1(tailwindcss@4.1.11)
       tw-animate-css:
         specifier: ^1.3.5
         version: 1.3.5
@@ -2061,6 +2064,11 @@ packages:
 
   tailwind-merge@3.3.1:
     resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
+
+  tailwindcss-clip-path@1.0.1:
+    resolution: {integrity: sha512-cGeaEgxoXLbn+EWsXQwOUiRDFHFYgIArJwfK+ramnMhiylQZqDdv+aPDTCYOkuqaBSKwWgHJZxnmOGLbEgagXg==}
+    peerDependencies:
+      tailwindcss: '>=4.0.0'
 
   tailwindcss@4.1.11:
     resolution: {integrity: sha512-2E9TBm6MDD/xKYe+dvJZAmg3yxIEDNRc0jwlNyDg/4Fil2QcSLjFKGVff0lAf1jjeaArlG/M75Ey/EYr/OJtBA==}
@@ -4308,6 +4316,10 @@ snapshots:
   supports-preserve-symlinks-flag@1.0.0: {}
 
   tailwind-merge@3.3.1: {}
+
+  tailwindcss-clip-path@1.0.1(tailwindcss@4.1.11):
+    dependencies:
+      tailwindcss: 4.1.11
 
   tailwindcss@4.1.11: {}
 
