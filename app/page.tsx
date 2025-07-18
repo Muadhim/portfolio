@@ -21,9 +21,26 @@ export default function Home() {
           fill
         />
       </div>
+      <div className="-z-20 h-[600px] w-[600px] top-1/3 left-1/3 absolute ">
+        <Image
+          src={"/astronaut.png"}
+          alt="Dark Space"
+          priority
+          quality={100}
+          draggable={false}
+          unoptimized
+          loading="eager"
+          style={{ objectFit: "cover" }}
+          sizes="100vw"
+          placeholder="blur"
+          blurDataURL="/dark-space.jpg"
+          fetchPriority="high"
+          fill
+        />
+      </div>
       <Header />
       <main className="flex flex-col items-center justify-center h-full">
-        <h1>HELLO WORLD!</h1>
+        <h1 className="text-8xl font-black -z-30 absolute top-[30%] text-shine">HELLO WORLD!</h1>
 
       </main>
     </div>
