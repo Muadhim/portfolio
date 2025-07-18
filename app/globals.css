@@ -170,3 +170,14 @@
     white-space: nowrap;
   }
 }
+
+.typing-caret {
+  border-right: 2px solid white;
+  animation: blinkCaret 0.75s step-end infinite;
+}
+
+@keyframes blinkCaret {
+  50% {
+    border-color: transparent;
+  }
+}

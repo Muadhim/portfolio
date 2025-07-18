@@ -1,9 +1,10 @@
+import Greeting from "@/components/greeting";
 import Header from "@/components/header";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="relative p-5 dark:bg-white/30 h-screen w-full">
+    <div className="relative p-5 dark:bg-white/10 h-screen w-full">
       <div className="h-screen w-full fixed top-0 left-0 -z-40">
         <Image
           src={"/dark-space.jpg"}
@@ -40,8 +41,7 @@ export default function Home() {
       </div>
       <Header />
       <main className="flex flex-col items-center justify-center h-full">
-        <h1 className="text-8xl font-black -z-30 absolute top-[30%] text-shine">HELLO WORLD!</h1>
-
+        <Greeting />
       </main>
     </div>
   );
