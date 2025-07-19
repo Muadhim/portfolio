@@ -1,5 +1,6 @@
 import Greeting from "@/components/greeting";
 import Header from "@/components/header";
+import Menu from "@/components/menu";
 import Image from "next/image";
 
 export default function Home() {
@@ -40,8 +41,9 @@ export default function Home() {
         />
       </div>
       <Header />
-      <main className="flex flex-col items-center justify-center h-full">
+      <main className="flex flex-col items-center justify-center h-fit">
         <Greeting />
+        <Menu />
       </main>
     </div>
   );

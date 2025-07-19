@@ -32,12 +32,12 @@ const Header = () => {
             <div className='w-1/3 h-20 bg-foreground/70 dark:bg-foreground/90 text-background p-6 cp-full-bevel-br flex items-center justify-start'>
                 <h1 className='text-3xl font-black'>NAME:&nbsp;MU&apos;ADHIM&emsp;EXP:&nbsp;{experience}YEARS</h1>
             </div >
-            <div className='border-t-2 border-foreground/90 w-1/3 flex flex-col items-center justify-center gap-2'>
+            <div className='border-t-2 border-foreground/70 dark:border-foreground/90 w-1/3 flex flex-col items-center justify-center gap-2'>
                 <p className='font-black text-4xl text-center dark:text-background'>{time}</p>
-                <p className='dark:text-background'>{days[new Date().getDay()]}, {new Date().toLocaleDateString()}</p>
+                <p className='dark:text-background'>{days[new Date().getDay()]},&nbsp;{new Date().toLocaleDateString()}</p>
             </div>
             <div className='w-1/3 h-20 bg-foreground/70 dark:bg-foreground/90 text-background p-6 cp-full-bevel-bl flex items-center justify-end gap-4'>
-                <h2 className='text-3xl font-bold'>SOFTWARE ENGINEER</h2>
+                <h2 className='text-3xl font-bold text-end'>SOFTWARE ENGINEER</h2>
                 <ModeToggle />
             </div>
         </header >
