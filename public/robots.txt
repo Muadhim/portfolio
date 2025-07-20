@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://muadhim.vercel.app
+
+# Sitemaps
+Sitemap: https://muadhim.vercel.app/sitemap.xml

@@ -1,4 +1,4 @@
-import ContentSection from "@/app/sections/contentSection";
+import ContentSection from "@/sections/contentSection";
 import Greeting from "@/components/greeting";
 import Header from "@/components/header";
 import Menu from "@/components/menu";
