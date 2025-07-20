@@ -7,7 +7,7 @@ const ContactSection = () => {
         {
             name: "Email",
             icon: <Mail className="w-6 h-6" />,
-            link: "mailto:muadhim29@example.com",
+            link: "mailto:muadhim29@gmail.com",
         },
         {
             name: "WhatsApp",
