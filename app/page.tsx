@@ -1,3 +1,4 @@
+import ContentSection from "@/app/sections/contentSection";
 import Greeting from "@/components/greeting";
 import Header from "@/components/header";
 import Menu from "@/components/menu";
@@ -28,14 +29,13 @@ export default function Home() {
         <div className="-z-20 h-[600px] w-[600px] top-1/3 left-1/3 absolute ">
           <Image
             src={"/astronaut.png"}
-            alt="Dark Space"
+            alt="astronaut"
             priority
             quality={100}
             draggable={false}
             unoptimized
             loading="eager"
             style={{ objectFit: "cover" }}
-            sizes="100vw"
             placeholder="blur"
             blurDataURL="/dark-space.jpg"
             fetchPriority="high"
@@ -46,6 +46,7 @@ export default function Home() {
         <main className="flex flex-col items-center justify-center h-fit">
           <Greeting />
           <Menu />
+          <ContentSection />
         </main>
       </div>
     </Suspense>

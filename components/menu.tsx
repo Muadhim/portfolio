@@ -42,10 +42,10 @@ const Menu = () => {
                         <MenuInfo className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" menu='EXPERIENCE' />
                     </div>
                     <div className="relative group">
-                        <Button variant={section == "skill" ? "default" : "outline"} size="icon" className={cn([section == "skill" ? "" : "bg-foreground text-background"])} onClick={() => handleClick('skill')}>
+                        <Button variant={section == "ability" ? "default" : "outline"} size="icon" className={cn([section == "ability" ? "" : "bg-foreground text-background"])} onClick={() => handleClick('ability')}>
                             <Code />
                         </Button>
-                        <MenuInfo className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" menu='SKILL' />
+                        <MenuInfo className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" menu='ABILITY' />
                     </div>
                     <div className="relative group">
                         <Button variant={section == "project" ? "default" : "outline"} size="icon" className={cn([section == "project" ? "" : "bg-foreground text-background"])} onClick={() => handleClick('project')}>

@@ -138,20 +138,16 @@
         16px 100%, 0% 100%, 0% 16px);
   }
 
-  .cp-bevel-tl {
-    clip-path: polygon(16px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 16px);
+  .cp-bevel-tl-tr {
+    clip-path: polygon(16px 0%, calc(100% - 16px) 0%, 100% 16px,
+        100% calc(100% - 16px), 100% 100%,
+        0% 100%, 0% 100%, 0% 16px);
   }
 
-  .cp-bevel-tr {
-    clip-path: polygon(0% 0%, calc(100% - 16px) 0%, 100% 16px, 100% 100%, 0% 100%);
-  }
-
-  .cp-bevel-bl {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 16px 100%, 0% calc(100% - 16px));
-  }
-
-  .cp-bevel-br {
-    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%);
+  .cp-bevel-tr-bl-br {
+    clip-path: polygon(0% 0%, calc(100% - 16px) 0%, 100% 16px,
+        100% calc(100% - 16px), calc(100% - 16px) 100%,
+        16px 100%, 0% calc(100% - 16px), 0% 16px);
   }
 
   .cp-full-bevel-bl {
