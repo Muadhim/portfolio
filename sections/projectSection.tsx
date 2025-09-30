@@ -22,9 +22,9 @@ const ProjectSection = () => {
     return (
         <section className='flex flex-col items-center justify-center w-full h-screen'>
             <div className='w-fit max-w-[500px] h-fit bg-foreground/90 cp-bevel py-4 px-8 text-background mb-6 mx-auto'>
-                <h3 className='font-bold text-3xl text-center'>PROJECT</h3>
+                <h3 className='font-bold text-base md:text-3xl text-center'>PROJECT</h3>
             </div>
-            <ul className='flex max-w-[1400px] flex-wrap justify-center gap-3'>
+            <ul className='flex max-w-11/12 md:max-w-[1400px] flex-wrap justify-center gap-3 overflow-scroll' style={{ maxHeight: "calc(100vh - 170px)" }}>
                 {projects.map((project, index) => (
                     <li key={index} className='mb-4'>
                         <Window title={project.title} desc={project.desc} img={project.img} />

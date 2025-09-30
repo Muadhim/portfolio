@@ -42,6 +42,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --text-xxs: 10px;
 }
 
 :root {
@@ -114,7 +115,6 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -127,39 +127,160 @@
 
 @layer utilities {
   .cp-bevel {
-    clip-path: polygon(16px 0%, calc(100% - 16px) 0%, 100% 16px,
-        100% calc(100% - 16px), calc(100% - 16px) 100%,
-        16px 100%, 0% calc(100% - 16px), 0% 16px);
+    clip-path: polygon(
+      16px 0%,
+      calc(100% - 16px) 0%,
+      100% 16px,
+      100% calc(100% - 16px),
+      calc(100% - 16px) 100%,
+      16px 100%,
+      0% calc(100% - 16px),
+      0% 16px
+    );
   }
 
   .cp-bevel-tl-br {
-    clip-path: polygon(16px 0%, 100% 0%, 100% 0%,
-        100% calc(100% - 16px), calc(100% - 16px) 100%,
-        16px 100%, 0% 100%, 0% 16px);
+    clip-path: polygon(
+      16px 0%,
+      100% 0%,
+      100% 0%,
+      100% calc(100% - 16px),
+      calc(100% - 16px) 100%,
+      16px 100%,
+      0% 100%,
+      0% 16px
+    );
   }
 
   .cp-bevel-tl-tr {
-    clip-path: polygon(16px 0%, calc(100% - 16px) 0%, 100% 16px,
-        100% calc(100% - 16px), 100% 100%,
-        0% 100%, 0% 100%, 0% 16px);
+    clip-path: polygon(
+      16px 0%,
+      calc(100% - 16px) 0%,
+      100% 16px,
+      100% calc(100% - 16px),
+      100% 100%,
+      0% 100%,
+      0% 100%,
+      0% 16px
+    );
   }
 
   .cp-bevel-tr-bl-br {
-    clip-path: polygon(0% 0%, calc(100% - 16px) 0%, 100% 16px,
-        100% calc(100% - 16px), calc(100% - 16px) 100%,
-        16px 100%, 0% calc(100% - 16px), 0% 16px);
+    clip-path: polygon(
+      0% 0%,
+      calc(100% - 16px) 0%,
+      100% 16px,
+      100% calc(100% - 16px),
+      calc(100% - 16px) 100%,
+      16px 100%,
+      0% calc(100% - 16px),
+      0% 16px
+    );
   }
 
   .cp-full-bevel-bl {
-    clip-path: polygon(0% 0%, calc(100% - 16px) 0%, 100% 16px,
-        100% calc(100% - 16px), calc(100% - 16px) 100%,
-        50px 100%, 0% calc(100% - 50px), 0% 16px);
+    clip-path: polygon(
+      0% 0%,
+      calc(100% - 16px) 0%,
+      100% 16px,
+      100% calc(100% - 16px),
+      calc(100% - 16px) 100%,
+      50px 100%,
+      0% calc(100% - 50px),
+      0% 16px
+    );
   }
 
   .cp-full-bevel-br {
-    clip-path: polygon(16px 0%, 100% 0%, 100% 16px,
-        100% calc(100% - 50px), calc(100% - 50px) 100%,
-        16px 100%, 0% calc(100% - 16px), 0% 16px);
+    clip-path: polygon(
+      16px 0%,
+      100% 0%,
+      100% 16px,
+      100% calc(100% - 50px),
+      calc(100% - 50px) 100%,
+      16px 100%,
+      0% calc(100% - 16px),
+      0% 16px
+    );
+  }
+
+  @media (max-width: 640px) {
+    .cp-bevel {
+      clip-path: polygon(
+        8px 0%,
+        calc(100% - 8px) 0%,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        0% calc(100% - 8px),
+        0% 8px
+      );
+    }
+    .cp-bevel-tl-br {
+      clip-path: polygon(
+        8px 0%,
+        100% 0%,
+        100% 0%,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        0% 100%,
+        0% 8px
+      );
+    }
+
+    .cp-bevel-tl-tr {
+      clip-path: polygon(
+        8px 0%,
+        calc(100% - 8px) 0%,
+        100% 8px,
+        100% calc(100% - 8px),
+        100% 100%,
+        0% 100%,
+        0% 100%,
+        0% 8px
+      );
+    }
+
+    .cp-bevel-tr-bl-br {
+      clip-path: polygon(
+        0% 0%,
+        calc(100% - 8px) 0%,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        0% calc(100% - 8px),
+        0% 8px
+      );
+    }
+
+    .cp-full-bevel-bl {
+      clip-path: polygon(
+        0% 0%,
+        calc(100% - 8px) 0%,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        20px 100%,
+        0% calc(100% - 20px),
+        0% 8px
+      );
+    }
+
+    .cp-full-bevel-br {
+      clip-path: polygon(
+        8px 0%,
+        100% 0%,
+        100% 8px,
+        100% calc(100% - 20px),
+        calc(100% - 20px) 100%,
+        8px 100%,
+        0% calc(100% - 8px),
+        0% 8px
+      );
+    }
   }
 
   .text-shine {

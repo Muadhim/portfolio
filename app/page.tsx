@@ -8,7 +8,7 @@ import { Suspense } from "react";
 export default function Home() {
   return (
     <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
-      <div className="relative p-5 dark:bg-white/10 h-screen w-full">
+      <div className="relative p-5 dark:bg-white/10 h-screen w-screen overflow-hidden">
         <div className="h-screen w-full fixed top-0 left-0 -z-40">
           <Image
             src={"/dark-space.jpg"}
@@ -26,7 +26,7 @@ export default function Home() {
             fill
           />
         </div>
-        <div className="-z-20 h-[600px] w-[600px] top-1/3 left-1/3 absolute ">
+        <div className="-z-20 h-[250px] md:h-[400px] xl:h-[600px] w-[250px] md:w-[400px] xl:w-[600px] top-3/10 xl:top-1/3 left-1/4 xl:left-1/3 absolute ">
           <Image
             src={"/astronaut.png"}
             alt="astronaut"

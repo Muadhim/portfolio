@@ -27,8 +27,8 @@ const ContactSection = () => {
     ];
     return (
         <section className="text-center py-10 absolute top-1/2 -translate-y-1/2">
-            <h2 className="text-3xl font-bold mb-6 cp-bevel bg-foreground text-background py-4 px-8 w-fit mx-auto">Contact Me</h2>
-            <div className="flex flex-wrap justify-center gap-6">
+            <h2 className="text-base md:text-3xl font-bold mb-6 cp-bevel bg-foreground text-background py-4 px-8 w-fit mx-auto">Contact Me</h2>
+            <div className="flex flex-wrap justify-center gap-2 md:gap-6">
                 {contacts.map((contact) => (
                     <a
                         key={contact.name}
@@ -38,7 +38,7 @@ const ContactSection = () => {
                         className="flex items-center gap-2 bg-foreground/90 text-background px-8 py-4 rounded-lg shadow hover:scale-105 transition-transform duration-200 cp-bevel cursor-pointer"
                     >
                         {contact.icon}
-                        <span className="font-medium">{contact.name}</span>
+                        <span className="text-xs md:text-base">{contact.name}</span>
                     </a>
                 ))}
             </div>

@@ -19,7 +19,7 @@ const Greeting = () => {
     }, [index]);
 
     return (
-        <h1 className="text-8xl font-black -z-30 absolute top-[30%] text-shine typing-caret">
+        <h1 className="text-4xl md:text-6xl xl:text-8xl font-black -z-30 absolute top-[30%] text-shine typing-caret">
             <span>{greeting}</span>
         </h1>
     )

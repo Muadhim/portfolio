@@ -31,21 +31,21 @@ const AbilitySection = () => {
         }
     ]
     return (
-        <section className='absolute top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 w-full'>
-            <div className='w-fit max-w-[500px] h-fit bg-foreground/90 cp-bevel p-4 text-background'>
-                <h3 className='font-bold text-3xl text-center'>ABILITY</h3>
-                <p className='text-center'>
+        <section className='absolute top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 md:gap-6 w-full'>
+            <div className='w-fit max-w-9/12 md:max-w-[500px] h-fit bg-foreground/90 cp-bevel p-2 md:p-4 text-background'>
+                <h3 className='font-bold text-base md:text-3xl text-center'>ABILITY</h3>
+                <p className='text-center text-xs md:text-base'>
                     I design and build modern, scalable, and responsive web applications across frontend and backend platforms.
                     With secure coding practices and efficient workflows,
                     I thrive in distributed teams while continuously expanding my skills as a Software Engineer.</p>
             </div>
-            <ul className='flex gap-6 w-fit max-w-[1000px] flex-wrap justify-center'>
+            <ul className='flex gap-2 md:gap-6 w-fit max-w-[1000px] flex-wrap justify-center'>
                 {ability.map((ablt, index) => (
-                    <li key={index} className='w-[300px] flex gap-2 cp-bevel p-4 bg-foreground/90 text-background'>
+                    <li key={index} className='w-[250px] md:w-[300px] flex gap-2 cp-bevel p-2 md:p-4 bg-foreground/90 text-background'>
                         <span>{ablt.icon}</span>
                         <div>
-                            <h4 className='font-semibold text-xl'>{ablt.ability}</h4>
-                            <p className='text-sm'>{ablt.technologies.join(', ')}</p>
+                            <h4 className='font-semibold text-sm md:text-xl'>{ablt.ability}</h4>
+                            <p className='text-xxs md:text-sm'>{ablt.technologies.join(', ')}</p>
                         </div>
                     </li>
                 ))}

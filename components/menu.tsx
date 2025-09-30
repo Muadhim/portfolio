@@ -1,9 +1,10 @@
 "use client";
 import React, { FC } from 'react'
 import { Button } from './ui/button'
-import { AppWindow, BriefcaseBusiness, Code, Phone, User } from 'lucide-react'
+import { AppWindow, BriefcaseBusiness, Code, Home, Phone, User } from 'lucide-react'
 import { cn } from '@/lib/utils';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { ModeToggle } from './mode-togle';
 
 interface MenuInfoProps {
     className?: string;
@@ -23,12 +24,18 @@ const Menu = () => {
     };
 
     return (
-        <div className="fixed right-5 top-1/2 -translate-y-1/2 z-50">
+        <div className="fixed right-2 xl:right-5 top-1/2 -translate-y-1/2 z-50">
             <div className="relative overflow-visible">
-                <div className="absolute top-0 right-0 bg-foreground/70 dark:bg-foreground/90 h-[500px] overflow-visible w-18 cp-bevel-tl-br p-4 flex flex-col gap-4 justify-center items-center">
-
+                <div className="absolute top-0 right-0 bg-foreground/70 dark:bg-foreground/90 h-[350px] xl:h-[500px] overflow-visible w-14 xl:w-18 cp-bevel-tl-br p2 xl:p-4 flex flex-col gap-2 xl:gap-4 justify-center items-center">
                 </div>
-                <div className='flex flex-col gap-4 items-center justify-center h-[500px] w-18 '>
+                <div className='flex flex-col gap-2 xl:gap-4 items-center justify-center h-[350px] xl:h-[500px] w-14 xl:w-18 '>
+
+                    <div className="relative group">
+                        <Button variant={section == "home" || !section ? "default" : "outline"} size="icon" className={cn([section == "home" ? "" : "bg-foreground text-background"])} onClick={() => handleClick('home')}>
+                            <Home />
+                        </Button>
+                        <MenuInfo className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" menu='HOME' />
+                    </div>
                     <div className="relative group">
                         <Button variant={section == "about" ? "default" : "outline"} size="icon" className={cn([section == "about" ? "" : "bg-foreground text-background"])} onClick={() => handleClick('about')}>
                             <User />
@@ -59,6 +66,9 @@ const Menu = () => {
                         </Button>
                         <MenuInfo className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" menu='CONTACT' />
                     </div>
+                    <div className='relative text-background'>
+                        <ModeToggle />
+                    </div>
                 </div>
             </div>
 
@@ -77,8 +87,8 @@ const MenuInfo: FC<MenuInfoProps> = ({ ...props }) => {
             <div className="absolute top-1/2 -right-2 translate-y-[-50%] w-0 h-0 border-y-8 border-y-transparent border-l-[8px] border-l-foreground/90"></div>
 
             {/* Content */}
-            <h2 className="text-base font-semibold">{props.menu}</h2>
-            <p className="text-xs">Click on the icons to navigate.</p>
+            <h2 className="text-xs xl:text-base font-semibold">{props.menu}</h2>
+            <p className="text-xxs xl:text-xs">Click on the icons to navigate.</p>
         </div>
     )
 }
